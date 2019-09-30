@@ -2,33 +2,33 @@
 
 module.exports = {
   up: (queryInterface, DataTypes) => {
-    return queryInterface.createTable('Animal', {
+    return queryInterface.createTable('Animais', {
       num_controle: {
         allowNull: false,
-        type: DataTypes.BIGINT(10),
+        type: Sequelize.BIGINT(10),
         primaryKey: true,
         autoIncrement: false,
         unique: true,
       },
       horario: {
         allowNull: false,
-        type: DataTypes.DATE,
+        type: Sequelize.DATE,
       },
       nome_proprietario: {
         allowNull: true,
-        type: DataTypes.STRING,
+        type: Sequelize.STRING,
       },
       rua: {
         allowNull: true,
-        type: DataTypes.STRING,
+        type: Sequelize.STRING,
       },
       numero: {
         allowNull: true,
-        type: DataTypes.INTEGER,
+        type: Sequelize.INTEGER,
       },
       bairro: {
         allowNull: true,
-        type: DataTypes.ENUM,
+        type: Sequelize.ENUM,
         values: [
           'Açude',
           'Amaral',
@@ -54,91 +54,99 @@ module.exports = {
       },
       telefone: {
         allowNull: true,
-        type: DataTypes.STRING(12),
+        type: Sequelize.STRING(12),
       },
       nome_animal: {
         allowNull: false,
-        type: DataTypes.STRING,
+        type: Sequelize.STRING,
       },
       genero: {
         allowNull: false,
-        type: DataTypes.ENUM,
+        type: Sequelize.ENUM,
         values: ['Fêmea', 'Macho'],
       },
       idade: {
         allowNull: true,
-        type: DataTypes.INTEGER,
+        type: Sequelize.INTEGER,
       },
       raca: {
         allowNull: true,
-        type: DataTypes.STRING,
+        type: Sequelize.STRING,
       },
       cor: {
         allowNull: true,
-        type: DataTypes.STRING,
+        type: Sequelize.STRING,
       },
       pelagem: {
         allowNull: true,
-        type: DataTypes.STRING,
+        type: Sequelize.STRING,
       },
       porte: {
         allowNull: false,
-        type: DataTypes.ENUM,
+        type: Sequelize.ENUM,
         values: ['Pequeno', 'Medio', 'Grande'],
       },
       observacoes: {
         allowNull: true,
-        type: DataTypes.STRING(300),
+        type: Sequelize.STRING(300),
       },
       teste_rapido: {
         allowNull: false,
-        type: DataTypes.ENUM,
+        type: Sequelize.ENUM,
         values: ['Positivo', 'Negativo', 'Indeterminado'],
       },
 
       // Somente se o teste rápido for positivo
       data_coleta_sangue: {
         allowNull: true,
-        type: DataTypes.DATE,
+        type: Sequelize.DATE,
       },
       data_cadastro_gal: {
         allowNull: true,
-        type: DataTypes.DATE,
+        type: Sequelize.DATE,
       },
       numero_cadastro_gal: {
         allowNull: true,
-        type: DataTypes.BIGINT(10),
+        type: Sequelize.BIGINT(10),
       },
       resultado_teste_gal: {
         allowNull: true,
-        type: DataTypes.ENUM,
+        type: Sequelize.ENUM,
         values: ['Positivo', 'Negativo', 'Indeterminado', 'Recusa'],
       },
 
       // Somente se o resultado do teste do Gal for positivo
       decisao: {
         allowNull: true,
-        type: DataTypes.ENUM,
+        type: Sequelize.ENUM,
         values: ['Eutanasia', 'Tratamento', 'Recusa', 'Morreu', 'Fugiu'],
       },
 
       // Somente se a decisao for pela eutanasia
       data_eutanasia: {
         allowNull: true,
-        type: DataTypes.DATE,
+        type: Sequelize.DATE,
       },
       veterinario_resp_eutanasia: {
         allowNull: true,
-        type: DataTypes.STRING,
+        type: Sequelize.STRING,
       },
       observacoes_eutanasia: {
         allowNull: true,
-        type: DataTypes.STRING(300),
+        type: Sequelize.STRING(300),
+      },
+      created_at: {
+        allowNull: false,
+        type: Sequelize.DATE,
+      },
+      updated_at: {
+        allowNull: false,
+        type: Sequelize.DATE,
       },
     });
   },
 
-  down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('dogs');
+  down: queryInterface => {
+    return queryInterface.dropTable('Animal');
   },
 };
