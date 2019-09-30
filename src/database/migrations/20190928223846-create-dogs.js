@@ -12,7 +12,7 @@ module.exports = {
       },
       horario: {
         allowNull: false,
-        type: DataTypes.DATE_TIME,
+        type: DataTypes.DATE,
       },
       nome_proprietario: {
         allowNull: true,
@@ -67,7 +67,7 @@ module.exports = {
       },
       idade: {
         allowNull: true,
-        type: DataTypes.INT,
+        type: DataTypes.INTEGER,
       },
       raca: {
         allowNull: true,
@@ -99,11 +99,11 @@ module.exports = {
       // Somente se o teste rápido for positivo
       data_coleta_sangue: {
         allowNull: true,
-        type: DataTypes.DATE_TIME,
+        type: DataTypes.DATE,
       },
       data_cadastro_gal: {
         allowNull: true,
-        type: DataTypes.DATE_TIME,
+        type: DataTypes.DATE,
       },
       numero_cadastro_gal: {
         allowNull: true,
@@ -125,7 +125,7 @@ module.exports = {
       // Somente se a decisao for pela eutanasia
       data_eutanasia: {
         allowNull: true,
-        type: DataTypes.DATE_TIME,
+        type: DataTypes.DATE,
       },
       veterinario_resp_eutanasia: {
         allowNull: true,
