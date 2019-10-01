@@ -1,4 +1,4 @@
-const { user } = require('../models');
+const { User } = require('../models');
 
 class userController {
   create(req, res) {
@@ -6,7 +6,9 @@ class userController {
   }
 
   async store(req, res) {
-    await user.create(req.body);
+    const { filename: avatar } = req.file;
+
+    await User.create({ ...req.body, avatar });
 
     return res.redirect('/');
   }

@@ -1,0 +1,23 @@
+{% extends "_layouts/default.njk" %}
+
+{% block body %}
+  <div class="content">
+    <strong>Ola, {{ user.name }}</strong>
+
+    <ul class="providers">
+      <li class="provider">
+        <a class="btn btn-success" href="./cadastro.njk">Cadastrar</a>
+      </li>
+      <li class="provider">
+        <a class="btn btn-success" href="#">Atualizar Cadastro</a>
+      </li>
+      <li class="provider">
+        <a class="btn btn-success" href="#">Relatório</a>
+      </li>
+    </ul>
+
+    <a href="/app/logout" class="logout">Sair</a>
+  </div>
+
+
+{% endblock %}

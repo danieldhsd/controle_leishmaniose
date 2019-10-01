@@ -5,16 +5,21 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon src/index.js"
+    "start": "nodemon src/index.js -e js"
   },
   "author": "Daniel Dutra",
   "license": "ISC",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "connect-flash": "^0.1.1",
     "express": "^4.17.1",
+    "express-session": "^1.16.2",
+    "multer": "^1.4.2",
     "mysql2": "^1.7.0",
     "nunjucks": "^3.2.0",
     "request": "^2.88.0",
-    "sequelize": "^5.19.1"
+    "sequelize": "^5.19.1",
+    "session-file-store": "^1.3.1"
   },
   "devDependencies": {
     "sequelize-cli": "^5.5.1"
