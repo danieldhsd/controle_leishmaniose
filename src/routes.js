@@ -32,4 +32,8 @@ routes.get('/app/dashboard', (req, res) => {
   return res.render('dashboard');
 });
 
+routes.get('/app/cadastro', (req, res) => {
+  return res.render('cadastro');
+});
+
 module.exports = routes;

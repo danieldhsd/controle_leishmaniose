@@ -1,23 +1,13 @@
-{% extends "_layouts/default.njk" %}
+{% extends "_layouts/auth.njk" %}
 
 {% block body %}
-  <div class="content">
-    <strong>Ola, {{ user.name }}</strong>
+  <div class="box">
 
-    <ul class="providers">
-      <li class="provider">
-        <a class="btn btn-success" href="./cadastro.njk">Cadastrar</a>
-      </li>
-      <li class="provider">
-        <a class="btn btn-success" href="#">Atualizar Cadastro</a>
-      </li>
-      <li class="provider">
-        <a class="btn btn-success" href="#">Relatório</a>
-      </li>
-    </ul>
-
-    <a href="/app/logout" class="logout">Sair</a>
+    {% include "_partials/flash.njk" %}
+    <button id="cadastro"><a href="./cadastro">Cadastrar Animal</a></button>
+    <button id="atualiza"><a href="#">Atualizar Cadastro</a></button>
+    <button id="relatorio"><a href="#">Relatório</a></button>
+    <button id="sair"><a href="/app/logout">Sair</a></button>
   </div>
-
 
 {% endblock %}

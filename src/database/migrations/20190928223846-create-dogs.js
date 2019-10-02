@@ -16,7 +16,7 @@ module.exports = {
       },
       nome_proprietario: {
         allowNull: true,
-        type: Sequelize.STRING,
+        type: Sequelize.STRING(30),
       },
       rua: {
         allowNull: true,
@@ -28,29 +28,7 @@ module.exports = {
       },
       bairro: {
         allowNull: true,
-        type: Sequelize.ENUM,
-        values: [
-          'Açude',
-          'Amaral',
-          'Aparecida',
-          'Bela Vista',
-          'Boa Vista',
-          'Bom Jardim das Pedras',
-          'Cachoeirinha',
-          'Cacimba',
-          'Centro',
-          'Corrego da Prata',
-          'Fátima',
-          'Glória',
-          'Graminha',
-          'Japão Grande',
-          'Jardim América',
-          'Lava-Pés',
-          'Lourdes',
-          'Padre José Erlei',
-          'Parque Industrial',
-          'Santo Antônio',
-        ],
+        type: Sequelize.STRING(20),
       },
       telefone: {
         allowNull: true,
@@ -58,12 +36,11 @@ module.exports = {
       },
       nome_animal: {
         allowNull: false,
-        type: Sequelize.STRING,
+        type: Sequelize.STRING(30),
       },
       genero: {
         allowNull: false,
-        type: Sequelize.ENUM,
-        values: ['Fêmea', 'Macho'],
+        type: Sequelize.STRING(20),
       },
       idade: {
         allowNull: true,
@@ -71,20 +48,19 @@ module.exports = {
       },
       raca: {
         allowNull: true,
-        type: Sequelize.STRING,
+        type: Sequelize.STRING(20),
       },
       cor: {
         allowNull: true,
-        type: Sequelize.STRING,
+        type: Sequelize.STRING(20),
       },
       pelagem: {
         allowNull: true,
-        type: Sequelize.STRING,
+        type: Sequelize.STRING(20),
       },
       porte: {
         allowNull: false,
-        type: Sequelize.ENUM,
-        values: ['Pequeno', 'Medio', 'Grande'],
+        type: Sequelize.STRING(20),
       },
       observacoes: {
         allowNull: true,
@@ -92,8 +68,7 @@ module.exports = {
       },
       teste_rapido: {
         allowNull: false,
-        type: Sequelize.ENUM,
-        values: ['Positivo', 'Negativo', 'Indeterminado'],
+        type: Sequelize.STRING(20),
       },
 
       // Somente se o teste rápido for positivo
@@ -111,15 +86,13 @@ module.exports = {
       },
       resultado_teste_gal: {
         allowNull: true,
-        type: Sequelize.ENUM,
-        values: ['Positivo', 'Negativo', 'Indeterminado', 'Recusa'],
+        type: Sequelize.STRING(20),
       },
 
       // Somente se o resultado do teste do Gal for positivo
       decisao: {
         allowNull: true,
-        type: Sequelize.ENUM,
-        values: ['Eutanasia', 'Tratamento', 'Recusa', 'Morreu', 'Fugiu'],
+        type: Sequelize.STRING(20),
       },
 
       // Somente se a decisao for pela eutanasia
