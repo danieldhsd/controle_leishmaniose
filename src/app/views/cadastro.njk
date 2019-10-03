@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="utf-8"/>
@@ -6,6 +6,8 @@
   <title>Controle de Leishmaniose</title>
 
   <link rel="stylesheet" href="/cadastro.css"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 </head>
 
 <body>
@@ -25,7 +27,7 @@
           <input class="contact-form-text" min="0" type="number" name="num_controle" placeholder="(Somente Números)" required>
         </label>
         <label for="horario">Data e Hora da Coleta
-          <input class="contact-form-text" type="datetime-local" name="horario" required>
+          <input class="contact-form-text flatpickr" type="text" name="horario" required>
         </label>
 
         <label for="nome_proprietario">Nome do Proprietário
@@ -132,11 +134,11 @@
         <h2>Caso Teste Positivo Preencher Campos Abaixo</h2>
 
         <label for="data_coleta_sangue">Data Coleta Sangue
-          <input class="contact-form-text" value="2000-01-01" type="date" name="data_coleta_sangue">
+          <input class="contact-form-text flatpickr" value="" type="text" name="data_coleta_sangue">
         </label>
 
         <label for="data_cadastro_gal">Data Cadastro no GAL
-          <input class="contact-form-text" value="2000-01-01" type="date" name="data_cadastro_gal">
+          <input class="contact-form-text flatpickr" value="" type="text" name="data_cadastro_gal">
         </label>
 
         <label for="numero_cadastro_gal">Número Cadastro no GAL
@@ -176,7 +178,7 @@
         <h2>Caso Decisão Seja Eutanasia Preencher Campos Abaixo</h2>
 
         <label for="data_eutanasia">Data da Eutanasia
-          <input class="contact-form-text" value="2000-01-01" type="date" name="data_eutanasia">
+          <input class="contact-form-text flatpickr" value=" " type="text" name="data_eutanasia">
         </label>
 
         <label for="veterinario_resp_eutanasia">Veterinario Responsavel pela Eutanasia
@@ -232,6 +234,11 @@
       }
     })
 
+    flatpickr('.flatpickr', {
+      enableTime: true,
+      defaultDate: new Date(),
+      dateFormat: 'd/m/Y H:i'
+    })
   </script>
 </body>
 </html>

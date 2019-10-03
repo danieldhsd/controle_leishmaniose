@@ -32,12 +32,11 @@ routes.get('/app/dashboard', (req, res) => {
   return res.render('dashboard');
 });
 
-routes.get('/app/atualizar_cadastro', (req, res) => {
-  return res.render('atualizar_cadastro');
-});
-
 routes.get('/app/cadastro', cadastroController.create);
 
 routes.post('/app/cadastro', cadastroController.store);
 
+routes.get('/app/atualizar_cadastro', (req, res) => {
+  return res.render('atualizar_cadastro');
+});
 module.exports = routes;
