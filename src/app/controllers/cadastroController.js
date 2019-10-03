@@ -1,14 +1,14 @@
-const { Animal } = require('../models');
+const { Dogs } = require('../models');
 
 class cadastroController {
   create(req, res) {
-    return res.render('auth/signup');
+    return res.render('cadastro');
   }
 
   async store(req, res) {
-    await Animal.create(req.body);
+    await Dogs.create(req.body);
 
-    return res.redirect('/dashboard');
+    return res.redirect('/app/dashboard');
   }
 }
 

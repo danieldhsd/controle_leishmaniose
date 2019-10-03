@@ -1,13 +1,17 @@
 'use strict';
 
 module.exports = {
-  up: (queryInterface, DataTypes) => {
-    return queryInterface.createTable('Animais', {
+  up: (queryInterface, Sequelize) => {
+    return queryInterface.createTable('dogs', {
+      id: {
+        allowNull: false,
+        autoIncrement: true,
+        primaryKey: true,
+        type: Sequelize.INTEGER,
+      },
       num_controle: {
         allowNull: false,
         type: Sequelize.BIGINT(10),
-        primaryKey: true,
-        autoIncrement: false,
         unique: true,
       },
       horario: {
@@ -119,7 +123,7 @@ module.exports = {
     });
   },
 
-  down: queryInterface => {
-    return queryInterface.dropTable('Animal');
+  down: (queryInterface, Sequelize) => {
+    return queryInterface.dropTable('dogs');
   },
 };

@@ -1,5 +1,5 @@
 module.exports = (sequelize, DataTypes) => {
-  const Animal = sequelize.define('Animal', {
+  const Dogs = sequelize.define('Dogs', {
     num_controle: DataTypes.BIGINT(10),
     horario: DataTypes.DATE,
     nome_proprietario: DataTypes.STRING(30),
@@ -26,5 +26,5 @@ module.exports = (sequelize, DataTypes) => {
     observacoes_eutanasia: DataTypes.STRING(300),
   });
 
-  return Animal;
+  return Dogs;
 };
