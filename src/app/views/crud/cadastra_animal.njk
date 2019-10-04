@@ -8,6 +8,8 @@
   <link rel="stylesheet" href="/cadastro.css"/>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
   <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/core.js"></script>
+  <script src="https://cdnjs.com/libraries/jquery.mask"></script>
 </head>
 
 <body>
@@ -17,7 +19,7 @@
     <h1>Cadastrar Animal</h1>
 
     <div class="border"></div>
-    <form method="post" class="contact-form" class="box" action="cadastro">
+    <form method="post" class="contact-form" class="box" action="cadastra_animal">
 
       {% include "_partials/flash.njk" %}
 
@@ -27,7 +29,7 @@
           <input class="contact-form-text" min="0" type="number" name="num_controle" placeholder="(Somente Números)" required>
         </label>
         <label for="horario">Data e Hora da Coleta
-          <input class="contact-form-text flatpickr" type="text" name="horario" required>
+          <input class="contact-form-text flatpickr-hora" type="text" name="horario" required>
         </label>
 
         <label for="nome_proprietario">Nome do Proprietário
@@ -71,7 +73,7 @@
 
         </div>
         <label for="telefone">Telefone
-          <input class="contact-form-text" data-js="telefone" type="text" name="telefone" placeholder="Somente Numeros">
+          <input class="contact-form-text" id="telefone" type="text" name="telefone" placeholder="Somente Numeros">
         </label>
 
         <label for="nome_animal">Nome do Animal
@@ -234,10 +236,15 @@
       }
     })
 
-    flatpickr('.flatpickr', {
+    flatpickr('.flatpickr-hora', {
       enableTime: true,
       defaultDate: new Date(),
       dateFormat: 'd/m/Y H:i'
+    })
+
+    flatpickr('.flatpickr', {
+      defaultDate: new Date(),
+      dateFormat: 'd/m/Y'
     })
   </script>
 </body>

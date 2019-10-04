@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Controle de Leishmaniose</title>
+
+  <link rel="stylesheet" href="/cadastro.css"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/core.js"></script>
+  <script src="https://cdnjs.com/libraries/jquery.mask"></script>
+</head>
+
+<body>
+
+  <div class="contact-section">
+
+    <h1>Editar Animal</h1>
+
+    <div class="border"></div>
+    <form method="post" class="contact-form" class="box" action="">
+
+      {% include "_partials/flash.njk" %}
+
+      <div class="teste-rapido">
+
+        <label for="num_controle">N. de Controle
+          <input class="contact-form-text" min="0" type="number" name="num_controle" placeholder="(Somente Números)" value="{{dog.num_controle}}" required>
+        </label>
+        <label for="horario">Data e Hora da Coleta
+          <input class="contact-form-text flatpickr" value="{{dog.horario}}" type="text" name="horario" required>
+        </label>
+
+        <label for="nome_proprietario">Nome do Proprietário
+          <input class="contact-form-text" type="text" value="{{dog.nome_proprietario}}" name="nome_proprietario" placeholder="Nome">
+        </label>
+
+        <label for="rua">Nome da Rua
+          <input class="contact-form-text" type="text" value="{{dog.rua}}" name="rua" placeholder="Ex: Rua Padre Francisco">
+        </label>
+
+        <label for="numero">Número da Rua
+          <input class="contact-form-text" min="0" type="number" value="{{dog.numero}}" name="numero" placeholder="Ex: 1501">
+        </label>
+
+        <div>
+          <label for="bairro">Bairro
+            <select name="bairro"> value="{{dog.bairro}}"
+              <option>--</option>
+              <option>Açude</option>
+              <option>Amaral</option>
+              <option>Aparecida</option>
+              <option>Bela Vista</option>
+              <option>Boa Vista</option>
+              <option>Bom Jardim das Pedras</option>
+              <option>Cachoeirinha</option>
+              <option>Cacimba</option>
+              <option>Centro</option>
+              <option>Corrego da Prata</option>
+              <option>Fátima</option>
+              <option>Glória</option>
+              <option>Graminha</option>
+              <option>Japão Grande</option>
+              <option>Jardim América</option>
+              <option>Lava-Pés</option>
+              <option>Lourdes</option>
+              <option>Padre José Erlei</option>
+              <option>Parque Industrial</option>
+              <option>Santo Antônio</option>
+            </select>
+          </label>
+
+        </div>
+        <label for="telefone">Telefone
+          <input class="contact-form-text" id="telefone" value="{{dog.telefone}}" type="text" name="telefone" placeholder="Somente Numeros">
+        </label>
+
+        <label for="nome_animal">Nome do Animal
+          <input class="contact-form-text" type="text" name="nome_animal" value="{{dog.nome_animal}}" placeholder="Nome Animal">
+        </label>
+
+        <div>
+          <label for="genero">Genêro
+            <select name="genero" value="{{dog.genero}}">
+              <option>Macho</option>
+              <option>Fêmea</option>
+            </select>
+          </label>
+        </div>
+
+        <label for="idade">Idade do Animal
+          <input class="contact-form-text" min="0" value="{{dog.idade}}" type="number" name="idade" placeholder="Somente Números">
+        </label>
+
+        <label for="raca">Raça
+          <input class="contact-form-text" type="text" name="raca" value="{{dog.raca}}">
+        </label>
+
+        <label for="cor">Cor
+          <input class="contact-form-text" type="text" value="{{dog.cor}}" name="cor">
+        </label>'
+
+        <label for="pelagem">Pelagem
+          <input class="contact-form-text" type="text" value="{{dog.pelagem}}" name="pelagem">
+        </label>
+
+        <div>
+          <label for="porte">Porte
+            <select name="porte">
+              <option>Pequeno</option>
+              <option>Médio</option>
+              <option>Grande</option>
+            </select>
+          </label>
+        </div>
+
+        <label for="observacoes">Observações
+          <textarea class="contact-form-text" value="{{dog.observacoes}}" name="observacoes"></textarea>
+        </label>
+
+        <div>
+          <label for="teste_rapido">Resultado Teste Rápido
+            <select id="teste_rapido" name="teste_rapido">
+              <option>--</option>
+              <option>Positivo</option>
+              <option>Negativo</option>
+              <option>Indeterminado</option>
+            </select>
+          </label>
+        </div>
+
+      </div>
+
+      <div class="teste-gal">
+        <h2>Caso Teste Positivo Preencher Campos Abaixo</h2>
+
+        <label for="data_coleta_sangue">Data Coleta Sangue
+          <input class="contact-form-text flatpickr" value="{{dog.data_coleta_sangue}}" type="text" name="data_coleta_sangue">
+        </label>
+
+        <label for="data_cadastro_gal">Data Cadastro no GAL
+          <input class="contact-form-text flatpickr" value="{{dog.data_cadastro_gal}}" type="text" name="data_cadastro_gal">
+        </label>
+
+        <label for="numero_cadastro_gal">Número Cadastro no GAL
+          <input class="contact-form-text" min="0" value="{{dog.numero_cadastro_gal}}" type="number" name="numero_cadastro_gal">
+        </label>
+
+        <div>
+          <label for="resultado_teste_gal">Resultado Teste GAL
+            <select id="resultado_teste_gal" name="resultado_teste_gal">
+              <option>--</option>
+              <option>Positivo</option>
+              <option>Negativo</option>
+              <option>Indeterminado</option>
+              <option>Recusa</option>
+            </select>
+          </label>
+        </div>
+      </div>
+
+      <div class="decisao">
+        <h2>Caso Teste Positivo Preencher Campos Abaixo</h2>
+
+        <div>
+          <label for="decisao">Decisao
+            <select id="decisao" name="decisao">
+              <option>--</option>
+              <option>Eutanasia</option>
+              <option>Tratamento</option>
+              <option>Recusa</option>
+              <option>Morreu/ Fugiu</option>
+            </select>
+          </label>
+        </div>
+      </div>
+
+      <div class="eutanasia">
+        <h2>Caso Decisão Seja Eutanasia Preencher Campos Abaixo</h2>
+
+        <label for="data_eutanasia">Data da Eutanasia
+          <input class="contact-form-text flatpickr" value="{{dog.data_eutanasia}}" type="text" name="data_eutanasia">
+        </label>
+
+        <label for="veterinario_resp_eutanasia">Veterinario Responsavel pela Eutanasia
+          <input class="contact-form-text" type="text" value="{{dog.veterinario_resp_eutanasia}}" name="veterinario_resp_eutanasia">
+        </label>
+
+        <label for="observacoes_eutanasia">Observações Eutanasia
+          <textarea class="contact-form-text" value="{{dog.observacoes_eutanasia}}" name="observacoes_eutanasia"></textarea>
+        </label>
+      </div>
+      <input type="submit" class="contact-form-btn" value="Atualizar Animal">
+
+    </form>
+  </div>
+
+  <script type="text/javascript">
+    let teste_rapido = document.getElementById("teste_rapido");
+
+    teste_rapido.addEventListener('click', (e) => {
+      if (e.target.value !== "Positivo"){
+        document.querySelector(".teste-gal").style.display = "none" ;
+        document.querySelector(".eutanasia").style.display = "none" ;
+        document.querySelector(".decisao").style.display = "none" ;
+      }
+      else{
+        document.querySelector(".teste-gal").style.display = "block" ;
+        document.querySelector(".eutanasia").style.display = "block" ;
+        document.querySelector(".decisao").style.display = "block" ;
+      }
+    })
+
+    let resultado_teste_gal = document.getElementById("resultado_teste_gal");
+
+    resultado_teste_gal.addEventListener("click", (e) => {
+      if (e.target.value !== "Positivo"){
+        document.querySelector(".eutanasia").style.display = "none";
+        document.querySelector(".decisao").style.display = "none";
+      }
+      else{
+        document.querySelector(".eutanasia").style.display = "block";
+        document.querySelector(".decisao").style.display = "block" ;
+      }
+    })
+
+    let eutanasia = document.getElementById("decisao");
+
+    eutanasia.addEventListener("click", (e) => {
+      if (e.target.value !== "Eutanasia"){
+        document.querySelector(".eutanasia").style.display = "none" ;
+      }
+      else{
+        document.querySelector(".eutanasia").style.display = "block" ;
+      }
+    })
+
+    flatpickr('.flatpickr', {
+      enableTime: true,
+      dateFormat: 'Y-d-m H:i:S'
+    })
+  </script>
+</body>
+</html>

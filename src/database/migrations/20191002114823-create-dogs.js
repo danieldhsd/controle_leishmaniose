@@ -86,7 +86,7 @@ module.exports = {
       },
       numero_cadastro_gal: {
         allowNull: true,
-        type: Sequelize.BIGINT(10),
+        type: Sequelize.DATE,
       },
       resultado_teste_gal: {
         allowNull: true,

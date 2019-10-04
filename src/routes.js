@@ -32,11 +32,13 @@ routes.get('/app/dashboard', (req, res) => {
   return res.render('dashboard');
 });
 
-routes.get('/app/cadastro', cadastroController.create);
+// Rotas para Formulario de Cadastro de animais
+routes.get('/app/crud/cadastra_animal', cadastroController.create);
+routes.post('/app/crud/cadastra_animal', cadastroController.store);
 
-routes.post('/app/cadastro', cadastroController.store);
+// Rota para listar animais pendentes
+routes.get('/app/crud/busca_pendentes', cadastroController.pendentes);
 
-routes.get('/app/atualizar_cadastro', (req, res) => {
-  return res.render('atualizar_cadastro');
-});
+routes.get('/app/crud/edita_animal/:id', cadastroController.atualiza);
+
 module.exports = routes;
