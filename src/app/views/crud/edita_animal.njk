@@ -9,7 +9,6 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
   <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/core.js"></script>
-  <script src="https://cdnjs.com/libraries/jquery.mask"></script>
 </head>
 
 <body>
@@ -19,7 +18,7 @@
     <h1>Editar Animal</h1>
 
     <div class="border"></div>
-    <form method="post" class="contact-form" class="box" action="">
+    <form method="post" class="contact-form box" action="/app/crud/edita_animal/{{dog.id}}">
 
       {% include "_partials/flash.njk" %}
 
@@ -46,7 +45,8 @@
 
         <div>
           <label for="bairro">Bairro
-            <select name="bairro"> value="{{dog.bairro}}"
+            <select name="bairro">
+              <option selected>{{dog.bairro}}</option>
               <option>--</option>
               <option>Açude</option>
               <option>Amaral</option>
@@ -82,7 +82,8 @@
 
         <div>
           <label for="genero">Genêro
-            <select name="genero" value="{{dog.genero}}">
+            <select name="genero">
+              <option selected>{{dog.genero}}</option>
               <option>Macho</option>
               <option>Fêmea</option>
             </select>
@@ -99,7 +100,7 @@
 
         <label for="cor">Cor
           <input class="contact-form-text" type="text" value="{{dog.cor}}" name="cor">
-        </label>'
+        </label>
 
         <label for="pelagem">Pelagem
           <input class="contact-form-text" type="text" value="{{dog.pelagem}}" name="pelagem">
@@ -108,6 +109,8 @@
         <div>
           <label for="porte">Porte
             <select name="porte">
+              <option selected>{{dog.porte}}</option>
+              <option>--</option>
               <option>Pequeno</option>
               <option>Médio</option>
               <option>Grande</option>
@@ -122,6 +125,7 @@
         <div>
           <label for="teste_rapido">Resultado Teste Rápido
             <select id="teste_rapido" name="teste_rapido">
+              <option selected>{{dog.teste_rapido}}</option>
               <option>--</option>
               <option>Positivo</option>
               <option>Negativo</option>
@@ -150,6 +154,7 @@
         <div>
           <label for="resultado_teste_gal">Resultado Teste GAL
             <select id="resultado_teste_gal" name="resultado_teste_gal">
+              <option selected>{{dog.resultado_teste_gal}}</option>
               <option>--</option>
               <option>Positivo</option>
               <option>Negativo</option>
@@ -166,6 +171,7 @@
         <div>
           <label for="decisao">Decisao
             <select id="decisao" name="decisao">
+              <option selected>{{dog.decisao}}</option>
               <option>--</option>
               <option>Eutanasia</option>
               <option>Tratamento</option>
@@ -238,7 +244,8 @@
 
     flatpickr('.flatpickr', {
       enableTime: true,
-      dateFormat: 'Y-d-m H:i:S'
+      allowInput: true,
+      dateFormat: 'l M d Y H:i:S'
     })
   </script>
 </body>

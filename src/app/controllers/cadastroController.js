@@ -26,21 +26,22 @@ class cadastroController {
   }
 
   async search(req, res, next) {
-    let numero_controle = req.body.param;
+    let numero_controle = req.body.search;
 
     try {
       const dogs = await Dogs.findOne({
         where: {
-          num_controle: 789,
+          num_controle: numero_controle,
         },
       });
-      return res.render(`/app/search/`, { dogs });
+      console.log(dogs);
+      return res.redirect('/../../crud/busca_pendentes', { dogs });
     } catch (err) {
       return next(err);
     }
   }
 
-  async atualiza(req, res, next) {
+  async edita_animal(req, res, next) {
     let param = req.params.id;
     try {
       const dog = await Dogs.findOne({
@@ -49,27 +50,41 @@ class cadastroController {
         },
       });
       return res.render('crud/edita_animal', { dog });
-    } catch (error) {
+    } catch (err) {
       return next(err);
     }
   }
 
-  async update(req, res) {
-    const { num_controle } = req.body;
+  async update(req, res, next) {
+    const dog = req.body;
 
-    const dog = await Dogs.findOne({
-      where: { num_controle: req.num_controle },
-    });
+    try {
+      await Dogs.update(dog, { where: { id: req.params.id } });
+    } catch (err) {
+      return next(err);
+    }
 
-    return res.render('search', { dog });
+    return res.redirect('../../crud/busca_pendentes');
   }
 
   async destroy(req, res, next) {
-    try {
-      await Dog.destroy({ where: { num_controle: req.params.num_controle } });
+    const id = req.params.id;
 
-      return res.redirect(`/app/categories`);
-    } catch {
+    try {
+      await Dogs.destroy({ where: { id: id } });
+    } catch (err) {
+      return next(err);
+    }
+
+    try {
+      const dogs = await Dogs.findAll({
+        where: {
+          teste_rapido: 'Positivo',
+          resultado_teste_gal: ['Positivo', '--'],
+        },
+      });
+      return res.render('crud/busca_pendentes', { dogs });
+    } catch (err) {
       return next(err);
     }
   }
