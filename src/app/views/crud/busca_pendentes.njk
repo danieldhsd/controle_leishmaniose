@@ -53,18 +53,26 @@
         </tr>
       </thead>
       <tbody>
-          {% for dog in dogs %}
+        {% for dog in dogs %}
         <tr>
-            <th>{{dog.num_controle}}</th>
-            <th>{{dog.nome_animal}}</th>
-            <th>{{dog.nome_proprietario}}</th>
-            <th>{{dog.telefone}}</th>
-            <th>{{dog.teste_rapido}}</th>
-            <th>{{dog.resultado_teste_gal}}</th>
-            <th><a style="color: #fff" href="/app/crud/edita_animal/{{dog.id}}"><i class="fas fa-edit"></i></a></th>
-            <th><a style="color: #fff" href="/app/crud/apaga_animal/{{dog.id}}"><i class="fas fa-trash"></i></a></th>
+          <th>{{dog.num_controle}}</th>
+          <th>{{dog.nome_animal}}</th>
+          <th>{{dog.nome_proprietario}}</th>
+          <th>{{dog.telefone}}</th>
+          <th>{{dog.teste_rapido}}</th>
+          <th>{{dog.resultado_teste_gal}}</th>
+          <th>
+            <a style="color: #fff" href="/app/crud/edita_animal/{{dog.id}}">
+              <i class="fas fa-edit"></i>
+            </a>
+          </th>
+          <th>
+            <a style="color: #fff" href="/app/crud/apaga_animal/{{dog.id}}" id="apagar" data-toggle="modal" data-target="#exampleModal">
+              <i class="fas fa-trash"></i>
+            </a>
+          </th>
         </tr>
-          {% endfor %}
+        {% endfor %}
       </tbody>
     </table>
   </div>
@@ -73,8 +81,19 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
   <script>
-    $('#exampleModal').on('shown.bs.modal', function () {
-      $('#myInput').trigger('focus')
+    $(document).ready(function() {
+      $('a[data-toggle]').click(function(ev){
+        var href= $(this).attr('href');
+        console.log(href);
+
+        $('body').append('<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"><div class="modal-dialog" role="document"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="exampleModalLabel">Confirmar</h5><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button></div><div class="modal-body" class="message-delete">Tem certeza que deseja apagar este animal.</div><div class="modal-footer"><button type="button" class="btn btn-success" data-dismiss="modal">Cancelar</button><a id="confirmar_apagar" style="cursor: pointer" class="btn btn-danger text-white">Apagar</a></div></div></div></div>');
+
+        $('#exampleModal').on('shown.bs.modal', function () {
+          $('#myInput').trigger('focus')
+        })
+
+        $('#confirmar_apagar').attr('href', href);
+      })
     })
   </script>
 </body>

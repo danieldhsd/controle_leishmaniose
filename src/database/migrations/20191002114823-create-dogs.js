@@ -36,7 +36,7 @@ module.exports = {
       },
       telefone: {
         allowNull: true,
-        type: Sequelize.STRING(12),
+        type: Sequelize.STRING(20),
       },
       nome_animal: {
         allowNull: false,
