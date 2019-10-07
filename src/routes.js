@@ -38,7 +38,7 @@ routes.post('/app/crud/cadastra_animal', cadastroController.store);
 
 // Rota para listar animais pendentes
 routes.get('/app/crud/busca_pendentes', cadastroController.pendentes);
-routes.post('/app/crud/busca_pendentes', cadastroController.search);
+routes.get('/app/crud/busca_pendentes/:params', cadastroController.search);
 
 routes.get('/app/crud/edita_animal/:id', cadastroController.edita_animal);
 routes.post('/app/crud/edita_animal/:id', cadastroController.update);

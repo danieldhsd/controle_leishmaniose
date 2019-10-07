@@ -26,7 +26,7 @@ class cadastroController {
   }
 
   async search(req, res, next) {
-    let numero_controle = req.body.search;
+    let numero_controle = req.params.id;
 
     try {
       const dogs = await Dogs.findOne({

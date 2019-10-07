@@ -1,12 +1,12 @@
 module.exports = (sequelize, DataTypes) => {
   const Dogs = sequelize.define('Dogs', {
-    num_controle: DataTypes.BIGINT(10),
+    num_controle: DataTypes.BIGINT(20),
     horario: DataTypes.DATE,
     nome_proprietario: DataTypes.STRING(30),
     rua: DataTypes.STRING,
     numero: DataTypes.INTEGER,
-    bairro: DataTypes.STRING(20),
-    telefone: DataTypes.STRING(12),
+    bairro: DataTypes.STRING(30),
+    telefone: DataTypes.STRING(15),
     nome_animal: DataTypes.STRING(30),
     genero: DataTypes.STRING(20),
     idade: DataTypes.INTEGER,
