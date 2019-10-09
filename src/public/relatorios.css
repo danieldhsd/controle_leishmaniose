@@ -1,0 +1,40 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "montserrat", sans-serif;
+  box-sizing: border-box;
+}
+
+body {
+  background: #34495e;
+  min-height: 100vh;
+}
+
+.container {
+  max-width: 800px;
+  margin: auto;
+  padding: 10px;
+}
+
+h2 {
+  margin: 20px 0;
+  text-align: center;
+  font-size: 50px;
+}
+
+.relatorio {
+  width: 100%;
+  background: rgb(38, 38, 39);
+  padding: 18px;
+  margin: 6px 0;
+  overflow: hidden;
+  border-radius: 25px;
+  border: none;
+}
+
+.relatorio a {
+  background: rbga(0, 0, 0, 0.5);
+  color: #fff;
+  font-size: 20px;
+  text-decoration: none;
+}

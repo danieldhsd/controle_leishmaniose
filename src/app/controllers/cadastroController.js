@@ -17,6 +17,8 @@ class cadastroController {
         where: {
           teste_rapido: 'Positivo',
           resultado_teste_gal: ['Positivo', '--'],
+          decisao: ['Eutanasia', '--'],
+          veterinario_resp_eutanasia: '',
         },
       });
       return res.render('crud/busca_pendentes', { dogs });
@@ -29,13 +31,12 @@ class cadastroController {
     let numero_controle = req.params.id;
 
     try {
-      const dogs = await Dogs.findOne({
+      const dogs = await Dogs.findAll({
         where: {
           num_controle: numero_controle,
         },
       });
-      console.log(dogs);
-      return res.redirect('/../../crud/busca_pendentes', { dogs });
+      return res.render('crud/busca_pendentes', { dogs });
     } catch (err) {
       return next(err);
     }
