@@ -39,7 +39,7 @@ routes.post('/app/crud/cadastra_animal', cadastroController.store);
 
 // Rota para listar animais pendentes
 routes.get('/app/crud/busca_pendentes', cadastroController.pendentes);
-routes.get('/app/crud/busca_pendentes/:id', cadastroController.search);
+routes.post('/app/crud/busca_pendentes', cadastroController.search);
 
 routes.get('/app/crud/edita_animal/:id', cadastroController.edita_animal);
 routes.post('/app/crud/edita_animal/:id', cadastroController.update);
@@ -49,6 +49,14 @@ routes.get('/app/relatorios/lista_de_relatorios', (req, res) => {
   return res.render('relatorios/lista_de_relatorios');
 });
 
+routes.get('/app/relatorios/tabela_relatorios_mes', (req, res) => {
+  return res.render('relatorios/tabela_relatorios_mes');
+});
+
+routes.post(
+  '/app/relatorios/total_por_mes_ano',
+  relatorioController.total_por_mes_ano
+);
 routes.get(
   '/app/relatorios/total_por_bairro',
   relatorioController.total_por_bairro

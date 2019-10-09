@@ -95,3 +95,21 @@ body {
     margin-top: 7rem;
   }
 }
+
+.form_procura_mes_ano {
+  margin: 5px;
+  padding: 5px;
+  position: relative;
+  border: none;
+  text-align: center;
+  font-family: 'montserrat', sans-serif;
+  font-size: 14px;
+}
+
+.form_procura_mes_ano input {
+  width: 300px;
+}
+
+.form_procura_mes_ano button {
+  border-radius: 25px;
+}

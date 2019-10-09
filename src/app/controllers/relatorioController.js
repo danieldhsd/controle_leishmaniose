@@ -2,6 +2,21 @@ const { Dogs } = require('../models');
 const sequelize = require('sequelize');
 
 class relatorioController {
+  async total_por_mes_ano(req, res, next) {
+    const mes = req.body.mes;
+    const ano = req.body.ano;
+
+    try {
+      const dogs = await Dogs.sequelize.query(
+        `SELECT bairro, count(num_controle) as quantidade from dogs where month(horario) = ${mes} and year(horario) = ${ano} group by bairro`,
+        { type: sequelize.QueryTypes.SELECT }
+      );
+      return res.render('relatorios/tabela_relatorios_mes', { dogs });
+    } catch (err) {
+      return next(err);
+    }
+  }
+
   async total_por_bairro(req, res, next) {
     try {
       const dogs = await Dogs.findAll({
