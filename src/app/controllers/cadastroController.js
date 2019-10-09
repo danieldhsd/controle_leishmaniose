@@ -11,6 +11,7 @@ class cadastroController {
     return res.redirect('/app/dashboard');
   }
 
+  // metodo para listar animais que ainda estão com o cadastro pendente
   async pendentes(req, res, next) {
     try {
       const dogs = await Dogs.findAll({
@@ -27,6 +28,7 @@ class cadastroController {
     }
   }
 
+  // Metodo para buscar um animal pelo seu numero de controle
   async search(req, res, next) {
     let numero_controle = req.body.search;
 
@@ -42,6 +44,7 @@ class cadastroController {
     }
   }
 
+  // Metodo que mostra a pagina para editar os dados do animal
   async edita_animal(req, res, next) {
     let param = req.params.id;
     try {
@@ -56,6 +59,7 @@ class cadastroController {
     }
   }
 
+  // metodo que grava as alteracoes do animal no banco
   async update(req, res, next) {
     const dog = req.body;
 

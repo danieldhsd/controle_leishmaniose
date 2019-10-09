@@ -1,3 +1,5 @@
+// Controle responsavel por gerar os relatorios da aplicação
+
 const { Dogs } = require('../models');
 const sequelize = require('sequelize');
 

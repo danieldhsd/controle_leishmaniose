@@ -39,20 +39,26 @@ routes.post('/app/crud/cadastra_animal', cadastroController.store);
 
 // Rota para listar animais pendentes
 routes.get('/app/crud/busca_pendentes', cadastroController.pendentes);
+
+// Rota para buscar um animal pelo seu numero de controle
 routes.post('/app/crud/busca_pendentes', cadastroController.search);
 
+// Rota para exibir pagina de editar animal
 routes.get('/app/crud/edita_animal/:id', cadastroController.edita_animal);
+
+// Rota que vai gravar as alteracoes dos dados do animal no banco
 routes.post('/app/crud/edita_animal/:id', cadastroController.update);
+
+// Rota para apagar animal
 routes.get('/app/crud/apaga_animal/:id', cadastroController.destroy);
 
+// Rotas responsaveis por gerar relatorios da aplicação
 routes.get('/app/relatorios/lista_de_relatorios', (req, res) => {
   return res.render('relatorios/lista_de_relatorios');
 });
-
 routes.get('/app/relatorios/tabela_relatorios_mes', (req, res) => {
   return res.render('relatorios/tabela_relatorios_mes');
 });
-
 routes.post(
   '/app/relatorios/total_por_mes_ano',
   relatorioController.total_por_mes_ano
